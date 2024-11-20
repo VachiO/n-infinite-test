@@ -1,6 +1,12 @@
 def reverse_num(num: int):
     # Write your code here.
-    pass
+    s = str(num)
+    list_s = list(s)
+    rev_list_s = list_s[::-1]
+
+    result = int("".join(rev_list_s))
+
+    return result
 
 # Run this file for test
 assert reverse_num(1234) == 4321

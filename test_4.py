@@ -1,7 +1,19 @@
+def word_mesh(words: list[str]) -> str:
+    def lcs(a, b):
+        for i in range(1, len(a) + 1):
+            if b.startswith(a[-i:]):
+                return a[-i:]
+        return ''     
 
-def word_mesh(words: list[str]):
-    # Write your code here.
-    pass
+    result = ""
+    for a, b in zip(words, words[1:]):
+        pair_lcs = lcs(a,b)
+        if not pair_lcs:
+            return "failed to mesh"
+        result += pair_lcs
+
+
+    return result
 
 # Run this file for test
 assert word_mesh(["beacon", "condominium", "umbilical", "california"]) == "conumcal"
