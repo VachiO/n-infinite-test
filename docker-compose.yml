@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:latest  # Pull the latest PostgreSQL image
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: user              # Database username
+      POSTGRES_PASSWORD: password      # Database password
+      POSTGRES_DB: testdb              # Initial database name
+    ports:
+      - "5432:5432"                    # Map local port 5432 to container port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persistent storage for data
+
+volumes:
+  postgres_data:                        # Define a named volume for persistence
